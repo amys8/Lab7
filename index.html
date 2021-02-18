@@ -130,10 +130,10 @@
       // The main difference from updateRecord() will be the URL you send data to; check
       // the writeup to view the URL pattern for create and update
       function createRecord() {
-        if ('show') {
+        if (event.type == 'show') {
           document.getElementById('recordForm').style.display = "inline";
         }
-        if ('submit') {
+        if (event.type == 'submit') {
           const info = document.querySelector('input[type="text"][multiple]');
           const data = {author: info.files[0] , title: info.files[1]};
           fetch(document.getElementById('endpoint').value, {
@@ -147,8 +147,8 @@
           .catch(function (error) {
             console.log('Request failed', error);
           });
+          document.getElementById('recordForm').style.display = "none";
         }
-        document.getElementById('recordForm').style.display = "none";
       }
 
       // This function should use fetch to update one existing entry in the given endpoint.
