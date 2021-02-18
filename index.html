@@ -145,7 +145,7 @@
           })
           .then(response => response.json())
           .then(result => {
-            document.getElementById('output').innerHTML = formData;
+            document.getElementById('output').innerHTML = JSON.stringify(formData);
           })
           .catch(function (error) {
             console.log('Request failed', error);
