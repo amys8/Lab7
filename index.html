@@ -131,17 +131,15 @@
       // the writeup to view the URL pattern for create and update
       function createRecord() {
         document.getElementById('recordForm').style.display = inline;
-        const formData = new FormData();
         const info = document.querySelector('input[type="text"][multiple]');
-        formData.append('author', info.files[0]);
-        formData.append('title', info.files[1]);
+        const data = {author: info.files[0] , title: info.files[1]};
         fetch(document.getElementById('endpoint').value, {
           method: 'POST',
-          body: formData;
+          body: JSON.stringify(data);
         })
         .then(response => response.json())
-        .then(result => {
-          document.getElementById('output').innerHTML = formData;
+        .then(data => {
+          document.getElementById('output').innerHTML = data;
         })
         .catch(function (error) {
           console.log('Request failed', error);
