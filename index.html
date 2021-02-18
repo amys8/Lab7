@@ -88,16 +88,16 @@
           .then(
             function(response) {
               if (response.status !== 200) {
-                console.log('Network Error: ' + response.status);
+                document.getElementById('output').innerHTML = "Network Error: " + response.status;
                 return;
               }
               response.json().then(function(data) {
-                console.log(data);
+                document.getElementById('output').innerHTML = data;
               });
             }
           )
           .catch(function(err) {
-            console.log('Fetch Error :-S', err);
+            document.getElementById('output').innerHTML = "Fetch Error :-S" + err;
           });
       }
 
