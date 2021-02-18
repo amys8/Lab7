@@ -134,18 +134,19 @@
           document.getElementById('recordForm').style.display = "inline";
         }
         if (param == 'submit') {
-          const formData = new FormData();
           const auth = document.getElementById('author');
           const tit = document.getElementById('title');
-          formData.append('author', auth);
-          formData.append('title', tit);
+          const data = {author: auth, title: tit};
           fetch(document.getElementById('endpoint').value, {
             method: 'POST',
-            body: formData
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data);
           })
           .then(response => response.json())
-          .then(result => {
-            document.getElementById('output').innerHTML = JSON.stringify(formData);
+          .then(data => {
+            document.getElementById('output').innerHTML = data;
           })
           .catch(function (error) {
             console.log('Request failed', error);
