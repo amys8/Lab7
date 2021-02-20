@@ -144,10 +144,17 @@
             },
             body: JSON.stringify(data)
           })
-          .then(response => response.json())
-          .then(data => {
-            document.getElementById('output').innerHTML = JSON.stringify(data);
-          })
+          .then(
+            function(response) {
+              if (response.status !== 200) {
+                document.getElementById('output').innerHTML = "Network Error: " + response.status;
+                return;
+              }
+              response.json().then(function(data) {
+                document.getElementById('output').innerHTML = JSON.stringify(data);
+              });
+            }
+          )
           .catch(function (error) {
             console.log('Request failed', error);
           });
@@ -177,10 +184,17 @@
             },
             body: JSON.stringify(data)
           })
-          .then(response => response.json())
-          .then(data => {
-            document.getElementById('output').innerHTML = JSON.stringify(data);
-          })
+          .then(
+            function(response) {
+              if (response.status !== 200) {
+                document.getElementById('output').innerHTML = "Network Error: " + response.status;
+                return;
+              }
+              response.json().then(function(data) {
+                document.getElementById('output').innerHTML = JSON.stringify(data);
+              });
+            }
+          )
           .catch(function (error) {
             console.log('Request failed', error);
           });
@@ -200,10 +214,20 @@
         fetch(url, {
           method: 'DELETE',
         })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('output').innerHTML = JSON.stringify(data);
-        })
+        .then(
+          function(response) {
+            if (response.status !== 200) {
+              document.getElementById('output').innerHTML = "Network Error: " + response.status;
+              return;
+            }
+            response.json().then(function(data) {
+              document.getElementById('output').innerHTML = JSON.stringify(data);
+            });
+          }
+        )
+        .catch(function (error) {
+          console.log('Request failed', error);
+        });
       }
 
       window.addEventListener('DOMContentLoaded', () => {
