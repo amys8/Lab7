@@ -136,7 +136,7 @@
         if (param == 'submit') {
           const auth = document.getElementById('author');
           const tit = document.getElementById('title');
-          const data = {author: auth, title: tit};
+          const data = {author: JSON.stringify(auth), title: JSON.stringify(tit)};
           fetch(document.getElementById('endpoint').value, {
             method: 'POST',
             headers: {
