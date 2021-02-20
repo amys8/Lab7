@@ -140,13 +140,13 @@
           fetch(document.getElementById('endpoint').value, {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json',
+              'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data);
+            body: JSON.stringify(data)
           })
           .then(response => response.json())
           .then(data => {
-            document.getElementById('output').innerHTML = data;
+            document.getElementById('output').innerHTML = JSON.stringify(data);
           })
           .catch(function (error) {
             console.log('Request failed', error);
