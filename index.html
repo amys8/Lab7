@@ -167,7 +167,7 @@
         if (param == 'submit') {
           const auth = document.getElementById('author').value;
           const tit = document.getElementById('title').value;
-          const id = document.getElementById('recordId');
+          const id = document.getElementById('recordID').value;
           const url = document.getElementById('endpoint').value + '/' + id;
           const data = {author: auth, title: tit};
           fetch(url, {
