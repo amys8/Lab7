@@ -146,7 +146,7 @@
           })
           .then(
             function(response) {
-              if (response.status !== 200) {
+              if (!response.ok) {
                 document.getElementById('output').innerHTML = "Network Error: " + response.status;
                 return;
               }
@@ -186,7 +186,7 @@
           })
           .then(
             function(response) {
-              if (response.status !== 200) {
+              if (!response.ok) {
                 document.getElementById('output').innerHTML = "Network Error: " + response.status;
                 return;
               }
@@ -216,7 +216,7 @@
         })
         .then(
           function(response) {
-            if (response.status !== 200) {
+            if (!response.ok) {
               document.getElementById('output').innerHTML = "Network Error: " + response.status;
               return;
             }
