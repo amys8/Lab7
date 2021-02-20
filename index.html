@@ -200,7 +200,10 @@
         fetch(url, {
           method: 'DELETE',
         })
-        .then
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('output').innerHTML = JSON.stringify(data);
+        })
       }
 
       window.addEventListener('DOMContentLoaded', () => {
