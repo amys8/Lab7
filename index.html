@@ -134,9 +134,9 @@
           document.getElementById('recordForm').style.display = "inline";
         }
         if (param == 'submit') {
-          const auth = document.getElementById('author');
-          const tit = document.getElementById('title');
-          const data = {author: JSON.stringify(auth), title: JSON.stringify(tit)};
+          const auth = document.getElementById('author').value;
+          const tit = document.getElementById('title').value;
+          const data = {author: auth, title: tit};
           fetch(document.getElementById('endpoint').value, {
             method: 'POST',
             headers: {
