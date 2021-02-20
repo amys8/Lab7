@@ -132,7 +132,6 @@
       function createRecord(param) {
         if (param == 'show') {
           document.getElementById('recordForm').style.display = "inline";
-          document.getElementById('recordIDcontainer').style.display = "inline";
         }
         if (param == 'submit') {
           const auth = document.getElementById('author').value;
@@ -153,7 +152,6 @@
             console.log('Request failed', error);
           });
           document.getElementById('recordForm').style.display = "none";
-          document.getElementById('recordIDcontainer').style.display = "none";
         }
       }
 
@@ -164,6 +162,7 @@
       function updateRecord(param) {
         if (param == 'show') {
           document.getElementById('recordForm').style.display = "inline";
+          document.getElementById('recordIDcontainer').style.display = "inline";
         }
         if (param == 'submit') {
           const auth = document.getElementById('author').value;
@@ -186,6 +185,7 @@
             console.log('Request failed', error);
           });
           document.getElementById('recordForm').style.display = "none";
+          document.getElementById('recordIDcontainer').style.display = "none";
         }
       }
 
